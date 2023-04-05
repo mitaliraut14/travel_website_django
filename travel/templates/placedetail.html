@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+ <main id="main"><br><br><br>
+    <div class="container">
+        <div class="row">
+        
+            {% for x in data %}
+            <div class="class col-md-9 my-3 mx-auto">
+                <div class="card" style="width: 100%;">
+                    <img src="{{x.Image}}" class="card-img-top" height=400px alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Location : {{x.State}}</h5>
+                      <p class="card-text">Package : {{x.Package}}</p>
+                      <p>Days : {{x.Days}}</p>
+                      <p>Start_Date : {{x.Start_date}} to End_Date : {{x.End_date}}</p>
+                      <p>Hotel Name : {{x.Hotel_name}}</p>
+                      <p>{{x.Description}}</p>
+                      <a href="/" class="btn btn-danger">Back</a>
+                      <a href="/book/{{x.id}}" class="btn btn-danger">Book</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+ </main>
+ {% endblock 'main' %}

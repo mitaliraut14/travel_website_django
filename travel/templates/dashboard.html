@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<main id="main"><br><br><br><br><br>
+
+    <div class="container">
+        <div class="row">
+        
+            <div class="col-md-2 my-5">
+                <a href="/"><button class="btn btn-danger">Explore More</button></a>  <!-- End of button-->
+            </div>
+
+            <div class="col-md-10 my-5">
+                <table class="table ">
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Mobile Number</th>
+                        <th>Number of Passenger</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Destination</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <!-- <th>Edit</th>
+                        <th>Delete</th> -->
+                    </tr>
+                    {% for x in book %}
+                    <tr>
+                        
+                        <td>{{x.id}}</td>
+                        <td>{{x.phn_no}}</td>
+                        <td>{{x.passenger}}</td>
+                        
+
+                        {% for x in user %}
+                        <td>{{x.first_name}}</td>
+                        <td>{{x.email}}</td>
+                        {% endfor %}
+
+                        {% for x in data %}
+                        <td>{{x.State}}</td>
+                        <td>{{x.Start_date}}</td>
+                        <td>{{x.End_date}}</td>
+                        <!-- <td><a href="/edit/{{x.id}}"><button class="btn btn-warning">Edit</button></a></td>
+                        <td><a href="/delete/{{x.id}}"><button class="btn btn-danger">Delete</button></a></td> -->
+                        
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+
+                </table>
+            </div> <!-- End of table-->
+           
+           
+
+        </div><!-- End of row-->
+    </div><!-- End of container-->
+    
+</main>
+{% endblock 'main' %}
+

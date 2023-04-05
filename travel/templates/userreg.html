@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<main id="main">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 my-5 mx-auto">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <br><br><br>
+                    <table>
+                        {% for x in regdata %}
+                        <tr>
+                            <td>{{x.label_tag}}</td>
+                            <td>{{x}}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                {% if msg %}
+                <span class="text-success"><b>{{msg}}</b></span>
+                <a href="userlogin"><button class="btn btn-success">Login</button></a>
+                {% endif %}
+            </div>
+
+        </div>
+        <div>
+        </div>
+
+
+        {% endblock 'main' %}

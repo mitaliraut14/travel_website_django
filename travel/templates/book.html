@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+<section id="booking">
+  <div class="bg-holder"
+    style="background-image:url('https://media.istockphoto.com/id/1195458582/photo/aerial-view-of-misty-mountains-at-sunrise.jpg?s=170667a&w=0&k=20&c=eu4Ph5rcomUfcScZ5l_mPLI7RwLTVdgTgPl4BwYkpwo=');background-position:center;background-size:cover;">
+  </div>
+  <!--/.bg-holder-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-8 text-white">
+        <div class="d-flex flex-column flex-center">
+          <h2 class="text-white fs-2 fs-md-3">WE WILL SEE YOU</h2>
+          <h1 class="text-white fs-2 fs-sm-4 fs-lg-7 fw-bold">Book Your First Trip Fast!!!</h1>
+        </div>
+
+        <form class="row" method="POST" action="">
+          {% csrf_token %}
+          {% for x in data %}
+          <div class="form-group">Name :
+            <input type="text" name="name" value="{{x.first_name}}" class="form-control" placeholder="">
+          </div> <!-- form-group// -->
+          <div class="form-group">Email :
+            <input type="email" name="email" value="{{x.email}}" class="form-control" placeholder="">
+          </div> <!-- form-group// -->
+          {% endfor %}
+          <div class="form-group">Mobile Number :
+            <input type="number" name="phn" class="form-control" placeholder="Enter Mobile Number">
+          </div> <!-- form-group// -->
+          {% for x in places %}
+          <div class="form-group">Destination :
+            <input type="text" name="dest" value="{{x.State}}" class="form-control" placeholder="">
+          </div> <!-- form-group// -->
+          <div class="form-group">Check In :
+            <input type="text" name="cin" value="{{x.Start_date}}" class="form-control" placeholder="">
+          </div> <!-- form-group// -->
+          <div class="form-group">Check Out :
+            <input type="text" name="cout" value="{{x.End_date}}" class="form-control" placeholder="">
+          </div> <!-- form-group// -->
+          {% endfor %}
+          <div class="form-group">Total Passenger :
+            <input type="number" name="tp" class="form-control" placeholder="Enter number Passenger">
+          </div> <!-- form-group// -->
+
+
+          <br>
+
+
+          <div class="col-6 col-md-auto">
+            <button class="btn btn-primary" type="submit" value="Click" onclick="alert('Congratulations!!!🥳, Your Trip is Successfully Booked!!!')">Book Now</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock 'main' %}
